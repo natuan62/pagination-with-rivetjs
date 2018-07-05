@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pagination with rivetjs</title>
+</head>
+<body>
+    <div class="list-blog-body" id="binding-news" >
+        <div class="container list-blog-element">
+            <!-- Bind -->
+            <div rv-each-item="items">
+                <div class="blog-element bg-white">
+                    <h4 class="tt sp">
+                        <a rv-href="item.id" rv-text="item.title"></a>
+                    </h4>
+                    <a rv-href="item.id">
+                        <img rv-src="item.imageurl" alt="Images">
+                    </a>
+                    <div class="info">
+                        <div class="sp">
+                            <h6 class="avatar clearfix">
+                                <img src="/assets/img/avatar-default.png" alt="Avatar" />
+                                <span>Author #{item.authorname}</span>
+                                <span class="date" rv-text="item.publisheddate"></span>
+                            </h6>
+                            <p rv-text="item.description"></p>
+                        </div>
+                        <div class="name clearfix">
+                            <h6>
+                                <span class="tt">
+                                    <a rv-href="item.id" rv-text="item.title"></a>
+                                </span>
+                                <span class="date" rv-text="item.publisheddate | date"></span>
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <ul class="control">
+            <li>
+                <button type="button" id="btn-prev" rv-on-click="controller.prevPage">
+                    <img src="/assets/img/icon/left-1.png" alt="Left" width="18" />
+                </button>
+            </li>
+            <li>
+                <button type="button" id="btn-next" rv-on-click="controller.nextPage">                        
+                    <img src="/assets/img/icon/right-1.png" alt="Left" width="18" />
+                </button>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
